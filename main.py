@@ -5,11 +5,11 @@ from dash import html
 from dash import Dash
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
-import openpyxl
 
 # read data
-## Potentialtabelle in der Ausgangsversion
+
 df = pd.read_csv("data.csv", encoding='utf-8-sig', sep=';')
+
 # init app
 
 external_stylesheets = [dbc.themes.SPACELAB]
@@ -20,19 +20,15 @@ app = Dash(__name__,
 
 server = app.server
 
-potentiale = df['Potenzial'].unique()
-
 # create html components
 
 header = html.H4("Softwaresondierung",
                  className="bg-primary text-white p-3 mb-2 text-center")
 
-## Checkboxen für jedes Potential
-
-
+# checkliste
 check_potential = html.Div(
     [
-        dbc.Label("Wählen Sie einen Landkreis aus (Texteingabe möglich):"),
+        dbc.Label("Wählen Sie die für Sie wichtigen Potentiale aus:"),
         dcc.Checklist(
             df['Potenzial'].unique(),
             id="check_potential",
@@ -44,13 +40,23 @@ check_potential = html.Div(
     className="mb-4",
 )
 
-
-## SChieberegler für jedes Potential zur Gewichtung
-
+# diagramm
+fig = html.Div(
+    [dcc.Graph
+        (
+        id='radar-graph',
+        config={'displayModeBar': True},
+        #style={'width': '80vh', 'height': '40vh', 'display': 'inline-block'},
+        style={'height': '60vh'},
+    ),
+    ],
+)
 # create layout
 
 
 checklist = dbc.Card([check_potential], body=True)
+
+chart1 = dbc.Card([fig], body=True)
 
 
 app.layout = dbc.Container(
@@ -59,7 +65,12 @@ app.layout = dbc.Container(
         dbc.Row
         (
             [
-                dbc.Col([check_potential],
+                dbc.Col([checklist],
+                        #width=6,
+                        xs=10, sm=8, md=5, lg=6, xl=5,
+                        style={"height": "80%"}
+                        ),
+                dbc.Col([chart1],
                         #width=6,
                         xs=10, sm=8, md=5, lg=6, xl=5,
                         style={"height": "80%"}
@@ -67,7 +78,6 @@ app.layout = dbc.Container(
             ],
             className="vh-50, g-6"
         ),
-# to control space between rows, play around with "margin-top" and "g-x" (unclear how it works exactly)
     ],
     fluid=True,
     className="dbc",
@@ -77,10 +87,35 @@ app.layout = dbc.Container(
 
 # callback function
 
-#   Ziel:
-#   Tabelle mit einer Zeile je Potential und einer Spalte je Tool, unten wird Summe gezogen, Ergebnis wird im Plot angezeigt
-#   Ob Zeile mit in die Tabelle kommen oder nicht, wird per Checkbox vom Benutzer festgelegt
-#   Bonus: Schieberegler unter jede Checkbox, mit der die Gewichtung beeinflusst werden kann
+
+@app.callback(
+    [
+    Output(component_id='radar-graph', component_property='figure')
+    ],
+    Input(component_id='check_potential', component_property='value')
+)
+
+def update_graph(value):
+    dff = df[df.Potenzial == value]
+
+    dff.astype({"spreadsheet": 'float64',
+                "language": 'float64',
+                "bi": 'float64'
+                })
+
+    bi_val = dff['bi'].sum()
+
+    spreadsheet_val = dff['spreadsheet'].sum()
+
+    language_val = dff['language'].sum()
+
+    df_radar = pd.DataFrame(dict(
+        r=[bi_val, spreadsheet_val, language_val],
+        theta=['BI', 'Tabellenkalkulation', 'Programmiersprache']))
+
+    fig = px.line_polar(df_radar, r='r', theta='theta', line_close=True)
+
+    return fig
 
 # run server
 if __name__ == '__main__':
