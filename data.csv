@@ -1,13 +1,13 @@
 ﻿Potenzial;spreadsheet;language;bi
-Etablierung und Verfügbarkeit in der kommunalen Verwaltung;9;4;5
-Benutzerfreundlichkeit und Einarbeitungsaufwand;8;3;6
+Etablierung;9;4;5
+Benutzerfreundlichkeit;8;3;6
 Anschaffungskosten;8;10;3
-Möglichkeit der Zusammenführung und Integration von Datensätzen aus unterschiedlichen Quellen;4;5;10
-Möglichkeit der effektiven Zusammenarbeit mehrerer Nutzer an derselben Datenbasis;4;4;10
-Eignung zur effizienten Verarbeitung großer Datenmengen;3;7;9
-Wirksame Funktionen und Mechanismen zum Schutz der Datenqualität (v. a. hinsichtlich Validität und Einheitlichkeit);4;4;9
-Leistungsfähige Funktionen zur Datenanalyse und -visualisierung;6;10;7
-Leistungsfähiges Rechtemanagement, welches den Datenzugriff steuert und die Einhaltung von Datenschutzregeln ermöglicht;3;3;9
-Nachhaltigkeit durch nachvollziehbare und nachnutzbare Bearbeitungs- und Dokumentationsformate;3;10;5
-Leistungsfähige Funktionen zur Erstellung von Berichten und Dashboards;5;7;9
-Nutzung von Schnittstellen für die Bereitstellung und Publikation von Daten sowie deren Beschaffung im Rahmen neuer Datenprojekte;2;7;7
+Integration;4;5;10
+Zusammenarbeit;4;4;10
+Datenmengen;3;7;9
+Datenqualität;4;4;9
+Datenanalyse;6;10;7
+Rechtemanagement;3;3;9
+Nachhaltigkeit;3;10;5
+Dashboards;5;7;9
+Schnittstellen;2;7;7
