@@ -31,7 +31,9 @@ check_potential = html.Div(
         dbc.Label("Wählen Sie die für Sie wichtigen Potentiale aus:"),
         dcc.Checklist(
             df['Potenzial'].unique(),
+            inline=True,
             id="check_potential",
+            value=["Etablierung", "Nachhaltigkeit"],
         ),
     ], style={
         'width': '50%',
@@ -95,8 +97,10 @@ app.layout = dbc.Container(
     Input(component_id='check_potential', component_property='value')
 )
 
-def update_graph(value):
-    dff = df[df.Potenzial == value]
+def update_graph(selected_potential):
+    #dff = df[df.Potenzial == value]
+    #dff = df[df['Potenzial'].eq(value)]
+    dff = df[df['Potenzial'].isin(selected_potential)]
 
     dff.astype({"spreadsheet": 'float64',
                 "language": 'float64',
