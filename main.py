@@ -98,26 +98,21 @@ app.layout = dbc.Container(
 )
 
 def update_graph(selected_potential):
-    #dff = df[df.Potenzial == value]
-    #dff = df[df['Potenzial'].eq(value)]
     dff = df[df['Potenzial'].isin(selected_potential)]
+    dff = dff.set_index('Potenzial')
 
     dff.astype({"spreadsheet": 'float64',
                 "language": 'float64',
                 "bi": 'float64'
                 })
 
-    bi_val = dff['bi'].sum()
+    dff = dff.reset_index()
+    dffm = pd.melt(dff, id_vars='Potenzial', value_vars=['spreadsheet', 'language', 'bi'])
+    
+    dffg = dffm.groupby(['variable']).agg({'value':'sum'}).reset_index()
+    #dffg.rename(columns={'value': 'r', 'variable': 'theta'}, inplace=True)
 
-    spreadsheet_val = dff['spreadsheet'].sum()
-
-    language_val = dff['language'].sum()
-
-    df_radar = pd.DataFrame(dict(
-        r=[bi_val, spreadsheet_val, language_val],
-        theta=['BI', 'Tabellenkalkulation', 'Programmiersprache']))
-
-    fig = px.line_polar(df_radar, r='r', theta='theta', line_close=True)
+    fig = px.line_polar(dffg, r='value', theta='variable', line_close=True)
 
     return fig
 
