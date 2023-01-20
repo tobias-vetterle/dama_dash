@@ -91,11 +91,11 @@ app.layout = dbc.Container(
 
 
 @app.callback(
-    [
-    Output(component_id='radar-graph', component_property='figure')
-    ],
+    # keeping the square brackets around the output (inherited from a project with multiple outputs) caused severe problems
+    # remember to place / remove the square brackets depending on wether its one or several ouputs...
+    Output(component_id='radar-graph', component_property='figure'),
     Input(component_id='check_potential', component_property='value')
-)
+    )
 
 def update_graph(selected_potential):
     dff = df[df['Potenzial'].isin(selected_potential)]
@@ -110,7 +110,6 @@ def update_graph(selected_potential):
     dffm = pd.melt(dff, id_vars='Potenzial', value_vars=['spreadsheet', 'language', 'bi'])
     
     dffg = dffm.groupby(['variable']).agg({'value':'sum'}).reset_index()
-    #dffg.rename(columns={'value': 'r', 'variable': 'theta'}, inplace=True)
 
     fig = px.line_polar(dffg, r='value', theta='variable', line_close=True)
 
