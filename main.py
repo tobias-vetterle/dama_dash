@@ -5,6 +5,7 @@ from dash import html
 from dash import Dash
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
+import numpy as np
 
 # read data
 
@@ -119,7 +120,7 @@ app.layout = dbc.Container(
     Output(component_id='radar-graph', component_property='figure'),
     [
         Input(component_id='check_potential', component_property='value'),
-        Input(component_id='slider_etablierung', component_property='value'),
+        Input(component_id='slider_etablierung', component_property='value'), #remove this line for working version
     ]
     )
 
@@ -135,7 +136,9 @@ def update_graph(selected_potential, weight_etablierung):
     dff = dff.reset_index()
     dffm = pd.melt(dff, id_vars='Potenzial', value_vars=['spreadsheet', 'language', 'bi'])
 
+    dffm["value"] = np.where(dffm["Potenzial"]=="Etablierung", dffm["value"]*weight_etablierung, dffm['value'])
 
+    #data["10th"] = np.where(data["10th"]<10, data["10th"]*10, data["10th"])
     
     dffg = dffm.groupby(['variable']).agg({'value':'sum'}).reset_index()
 
