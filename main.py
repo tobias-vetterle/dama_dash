@@ -55,29 +55,107 @@ check_potential = html.Div(
 )
 
 # slider
-sliders = html.Div(
+header_sliders = html.Div(
     [
     dbc.Label("Für ein genaueres Ergebnis können Sie die ausgewählten Anforderungen mit den Schiebereglern gewichten. Fragen Sie sich: 'Wie wichtig ist mir diese Anforderung im Vergleich zu den anderen ausgewählten Anforderungen?'",
         style={"margin-bottom": "35px"}
         ),
-    dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks={0.2: "weniger wichtig", 1: "gleich wichtig", 1.8: "wichtiger"}, id='slider_etablierung'),
-    dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_benutzerfreundlichkeit'),
-    dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_anschaffungskosten'),
-    dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_integration'),
-    dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_zusammenarbeit'),
-    dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_datenmengen'),
-    dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_datenqualitaet'),
-    dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_datenanalyse'),
-    dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_rechtemanagement'),
-    dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_nachhaltigkeit'),
-    dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_dashboards'),
-    dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_schnittstellen')
     ], style={
         'width': '100%',
         'display': 'inline-block'
     },
     className="mb-4",
 )
+
+container_slider_etablierung = html.Div(id="container_slider_etablierung", 
+    children=[
+        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks={0.2: "weniger wichtig", 1: "gleich wichtig", 1.8: "wichtiger"}, id='slider_etablierung')
+    ],
+    style= {'visibility': 'visible'}
+)
+
+container_slider_benutzerfreundlichkeit = html.Div(id="container_slider_benutzerfreundlichkeit", 
+    children=[
+        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_benutzerfreundlichkeit'),
+    ],
+    style= {'visibility': 'visible'}
+)
+
+container_slider_anschaffungskosten = html.Div(id="container_slider_anschaffungskosten", 
+    children=[
+        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_anschaffungskosten'),
+    ],
+    style= {'visibility': 'visible'}
+)
+
+container_slider_integration = html.Div(id="container_slider_integration", 
+    children=[
+        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_integration'),
+    ],
+    style= {'visibility': 'visible'}
+)
+
+container_slider_zusammenarbeit = html.Div(id="container_slider_zusammenarbeit", 
+    children=[
+        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_zusammenarbeit'),
+    ],
+    style= {'visibility': 'visible'}
+)
+container_slider_datenmengen = html.Div(id="container_slider_datenmengen", 
+    children=[
+        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_datenmengen'),
+    ],
+    style= {'visibility': 'visible'}
+)
+container_slider_datenqualitaet = html.Div(id="container_slider_datenqualitaet", 
+    children=[
+        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_datenqualitaet'),
+    ],
+    style= {'visibility': 'visible'}
+)
+
+container_slider_datenanalyse = html.Div(id="container_slider_datenanalyse", 
+    children=[
+        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_datenanalyse'),
+    ],
+    style= {'visibility': 'visible'}
+)
+
+container_slider_rechtemanagement = html.Div(id="container_slider_rechtemanagement", 
+    children=[
+        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_rechtemanagement'),
+    ],
+    style= {'visibility': 'visible'}
+)
+
+container_slider_nachhaltigkeit = html.Div(id="container_slider_nachhaltigkeit", 
+    children=[
+        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_nachhaltigkeit'),
+    ],
+    style= {'visibility': 'visible'}
+)
+
+container_slider_dashboards = html.Div(id="container_slider_dashboards", 
+    children=[
+        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_dashboards'),
+    ],
+    style= {'visibility': 'visible'}
+)
+
+container_slider_schnittstellen = html.Div(id="container_slider_schnittstellen", 
+    children=[
+        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_schnittstellen')
+    ],
+    style= {'visibility': 'visible'}
+)
+
+
+#     ], style={
+#         'width': '100%',
+#         'display': 'inline-block'
+#     },
+#     className="mb-4",
+# )
 
 # diagramm
 fig = html.Div(
@@ -97,7 +175,20 @@ fig = html.Div(
 
 checklist = dbc.Card([check_potential], className="border-0")
 
-sliders = dbc.Card([sliders], className="border-0")
+sliders = dbc.Card([
+    header_sliders, 
+    container_slider_etablierung, 
+    container_slider_benutzerfreundlichkeit,
+    container_slider_anschaffungskosten,
+    container_slider_integration,
+    container_slider_zusammenarbeit,
+    container_slider_datenmengen,
+    container_slider_datenqualitaet,
+    container_slider_datenanalyse,
+    container_slider_rechtemanagement,
+    container_slider_nachhaltigkeit,
+    container_slider_dashboards,
+    container_slider_schnittstellen], className="border-0")
 
 chart1 = dbc.Card([fig], body=True)
 
@@ -156,7 +247,6 @@ app.layout = dbc.Container(
     ]
     )
 
-
 def update_graph(selected_potential, weight_etablierung, weight_benutzerfreundlichkeit, weight_anschaffungskosten, weight_integration,
                 weight_zusammenarbeit, weight_datenmengen, weight_datenqualitaet, weight_datenanalyse, 
                 weight_rechtemanagement, weight_nachhaltigkeit, weight_dashboards, weight_schnittstellen):
@@ -203,6 +293,7 @@ def update_graph(selected_potential, weight_etablierung, weight_benutzerfreundli
 # endregion
 
 # region second callback to have at least one checkbox checked
+
 #  second callback function to set a minimum of 1 checked checkbox (otherwise error occurs)
 # see here: https://stackoverflow.com/questions/70157734/how-to-limit-the-number-of-selected-checkboxes-in-checklist-in-dashplotly
 @app.callback(
@@ -218,8 +309,142 @@ def update_checklist(value):
 # endregion
 
 #TODO implement third callback function which sets slider from min to mid position (or activates it, or makes a change to layout from grey to colour) when the according checkbox is activated
-# only makes sense if checkbox is automatically checked when slider is set to mid...
     # if "benutzerfreundlichkeit" isin(selected_potential) ....
+
+@app.callback(
+    Output(component_id='container_slider_etablierung', component_property='style'),
+    Input(component_id='check_potential', component_property='value')
+    )
+
+def show_hide_etabl(selected_boxes):
+    if "Etablierung" in selected_boxes:
+        return {'visibility': 'visible'}
+    else:
+        return {'visibility': 'hidden'}
+
+@app.callback(
+    Output(component_id='container_slider_benutzerfreundlichkeit', component_property='style'),
+    Input(component_id='check_potential', component_property='value')
+    )
+
+def show_hide_benutz(selected_boxes):
+    if "Benutzerfreundlichkeit" in selected_boxes:
+        return {'visibility': 'visible'}
+    else:
+        return {'visibility': 'hidden'}
+
+@app.callback(
+    Output(component_id='container_slider_anschaffungskosten', component_property='style'),
+    Input(component_id='check_potential', component_property='value')
+    )
+
+def show_hide_kosten(selected_boxes):
+    if "Anschaffungskosten" in selected_boxes:
+        return {'visibility': 'visible'}
+    else:
+        return {'visibility': 'hidden'}
+
+@app.callback(
+    Output(component_id='container_slider_integration', component_property='style'),
+    Input(component_id='check_potential', component_property='value')
+    )
+
+def show_hide_integ(selected_boxes):
+    if "Integration" in selected_boxes:
+        return {'visibility': 'visible'}
+    else:
+        return {'visibility': 'hidden'}
+
+
+@app.callback(
+    Output(component_id='container_slider_zusammenarbeit', component_property='style'),
+    Input(component_id='check_potential', component_property='value')
+    )
+
+def show_hide_koop(selected_boxes):
+    if "Zusammenarbeit" in selected_boxes:
+        return {'visibility': 'visible'}
+    else:
+        return {'visibility': 'hidden'}
+
+@app.callback(
+    Output(component_id='container_slider_datenmengen', component_property='style'),
+    Input(component_id='check_potential', component_property='value')
+    )
+
+def show_hide_mengen(selected_boxes):
+    if "Datenmengen" in selected_boxes:
+        return {'visibility': 'visible'}
+    else:
+        return {'visibility': 'hidden'}
+
+@app.callback(
+    Output(component_id='container_slider_datenqualitaet', component_property='style'),
+    Input(component_id='check_potential', component_property='value')
+    )
+
+def show_hide_quali(selected_boxes):
+    if "Datenqualität" in selected_boxes:
+        return {'visibility': 'visible'}
+    else:
+        return {'visibility': 'hidden'}
+
+@app.callback(
+    Output(component_id='container_slider_datenanalyse', component_property='style'),
+    Input(component_id='check_potential', component_property='value')
+    )
+
+def show_hide_analyse(selected_boxes):
+    if "Datenanalyse" in selected_boxes:
+        return {'visibility': 'visible'}
+    else:
+        return {'visibility': 'hidden'}
+
+@app.callback(
+    Output(component_id='container_slider_rechtemanagement', component_property='style'),
+    Input(component_id='check_potential', component_property='value')
+    )
+
+def show_hide_rechte(selected_boxes):
+    if "Rechtemanagement" in selected_boxes:
+        return {'visibility': 'visible'}
+    else:
+        return {'visibility': 'hidden'}
+
+@app.callback(
+    Output(component_id='container_slider_nachhaltigkeit', component_property='style'),
+    Input(component_id='check_potential', component_property='value')
+    )
+
+def show_hide_nachhaltigkeit(selected_boxes):
+    if "Nachhaltigkeit" in selected_boxes:
+        return {'visibility': 'visible'}
+    else:
+        return {'visibility': 'hidden'}
+
+@app.callback(
+    Output(component_id='container_slider_dashboards', component_property='style'),
+    Input(component_id='check_potential', component_property='value')
+    )
+
+def show_hide_dash(selected_boxes):
+    if "Dashboards" in selected_boxes:
+        return {'visibility': 'visible'}
+    else:
+        return {'visibility': 'hidden'}
+
+@app.callback(
+    Output(component_id='container_slider_schnittstellen', component_property='style'),
+    Input(component_id='check_potential', component_property='value')
+    )
+
+def show_hide_sstellen(selected_boxes):
+    if "Schnittstellen" in selected_boxes:
+        return {'visibility': 'visible'}
+    else:
+        return {'visibility': 'hidden'}   
+
+
 # run server
 if __name__ == '__main__':
     app.run_server(debug=True,
