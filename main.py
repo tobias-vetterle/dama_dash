@@ -54,11 +54,11 @@ check_potential = html.Div(
     className="mb-4",
 )
 
-# slider
+# header for the sliders
 header_sliders = html.Div(
     [
     dbc.Label("Für ein genaueres Ergebnis können Sie die ausgewählten Anforderungen mit den Schiebereglern gewichten. Fragen Sie sich: 'Wie wichtig ist mir diese Anforderung im Vergleich zu den anderen ausgewählten Anforderungen?'",
-        style={"margin-bottom": "35px"}
+        style={"margin-bottom": "13px"}
         ),
     ], style={
         'width': '100%',
@@ -67,84 +67,94 @@ header_sliders = html.Div(
     className="mb-4",
 )
 
+# variables for quick adjustments to the statistical weight of the items (controlled by the sliders):
+
+min_var= 1
+max_var= 11
+step_var= 5
+value_var= 6
+marks_dict = {1: "weniger wichtig", 6: "gleich wichtig", 11: "wichtiger"}
+
+# slider elements to increase or decrease the importance of items. each slider is placed in a div-container so we can individually control their visibility:
+
 container_slider_etablierung = html.Div(id="container_slider_etablierung", 
     children=[
-        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks={0.2: "weniger wichtig", 1: "gleich wichtig", 1.8: "wichtiger"}, id='slider_etablierung')
+        dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_etablierung')
     ],
     style= {'visibility': 'visible'}
 )
 
 container_slider_benutzerfreundlichkeit = html.Div(id="container_slider_benutzerfreundlichkeit", 
     children=[
-        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_benutzerfreundlichkeit'),
+        dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_benutzerfreundlichkeit'),
     ],
     style= {'visibility': 'visible'}
 )
 
 container_slider_anschaffungskosten = html.Div(id="container_slider_anschaffungskosten", 
     children=[
-        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_anschaffungskosten'),
+        dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_anschaffungskosten'),
     ],
     style= {'visibility': 'visible'}
 )
 
 container_slider_integration = html.Div(id="container_slider_integration", 
     children=[
-        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_integration'),
+        dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_integration'),
     ],
     style= {'visibility': 'visible'}
 )
 
 container_slider_zusammenarbeit = html.Div(id="container_slider_zusammenarbeit", 
     children=[
-        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_zusammenarbeit'),
+        dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_zusammenarbeit'),
     ],
     style= {'visibility': 'visible'}
 )
 container_slider_datenmengen = html.Div(id="container_slider_datenmengen", 
     children=[
-        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_datenmengen'),
+        dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_datenmengen'),
     ],
     style= {'visibility': 'visible'}
 )
 container_slider_datenqualitaet = html.Div(id="container_slider_datenqualitaet", 
     children=[
-        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_datenqualitaet'),
+        dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_datenqualitaet'),
     ],
     style= {'visibility': 'visible'}
 )
 
 container_slider_datenanalyse = html.Div(id="container_slider_datenanalyse", 
     children=[
-        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_datenanalyse'),
+        dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_datenanalyse'),
     ],
     style= {'visibility': 'visible'}
 )
 
 container_slider_rechtemanagement = html.Div(id="container_slider_rechtemanagement", 
     children=[
-        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_rechtemanagement'),
+        dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_rechtemanagement'),
     ],
     style= {'visibility': 'visible'}
 )
 
 container_slider_nachhaltigkeit = html.Div(id="container_slider_nachhaltigkeit", 
     children=[
-        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_nachhaltigkeit'),
+        dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_nachhaltigkeit'),
     ],
     style= {'visibility': 'visible'}
 )
 
 container_slider_dashboards = html.Div(id="container_slider_dashboards", 
     children=[
-        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_dashboards'),
+        dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_dashboards'),
     ],
     style= {'visibility': 'visible'}
 )
 
 container_slider_schnittstellen = html.Div(id="container_slider_schnittstellen", 
     children=[
-        dcc.Slider(min=0.2, max=1.8, step=0.8, value=1, marks=None, id='slider_schnittstellen')
+        dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_schnittstellen')
     ],
     style= {'visibility': 'visible'}
 )
@@ -292,10 +302,10 @@ def update_graph(selected_potential, weight_etablierung, weight_benutzerfreundli
 
 # endregion
 
-# region second callback to have at least one checkbox checked
+# region callback function 2 to have at least one checkbox checked
 
-#  second callback function to set a minimum of 1 checked checkbox (otherwise error occurs)
 # see here: https://stackoverflow.com/questions/70157734/how-to-limit-the-number-of-selected-checkboxes-in-checklist-in-dashplotly
+
 @app.callback(
     Output("check_potential", "value"),
     Input("check_potential", "value"),
@@ -308,8 +318,7 @@ def update_checklist(value):
    
 # endregion
 
-#TODO implement third callback function which sets slider from min to mid position (or activates it, or makes a change to layout from grey to colour) when the according checkbox is activated
-    # if "benutzerfreundlichkeit" isin(selected_potential) ....
+# region one callback for each slider, to show/hide the slider when the corresponding checkbox is checked/not checked
 
 @app.callback(
     Output(component_id='container_slider_etablierung', component_property='style'),
@@ -443,7 +452,7 @@ def show_hide_sstellen(selected_boxes):
         return {'visibility': 'visible'}
     else:
         return {'visibility': 'hidden'}   
-
+# endregion
 
 # run server
 if __name__ == '__main__':
