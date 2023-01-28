@@ -4,6 +4,7 @@ import plotly.express as px
 from dash import dcc
 from dash import html
 from dash import Dash
+from dash import State
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 import numpy as np
@@ -31,6 +32,52 @@ server = app.server
 
 header = html.H4("Softwaresondierung",
                  className="bg-primary text-white p-3 mb-2 text-center")
+
+# TODO add horizontal row of collapse components with explanatory text describing the items:
+
+collapse_etablierung = html.Div(
+    [
+        dbc.Button(
+            "Etablierung",
+            id="collapse_etablierung_button",
+            className="mb-3",
+            color="primary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            dbc.Card(
+                dbc.CardBody(
+                        "Etablierung und Verfügbarkeit in der kommunalen Verwaltung"
+                    ),
+                    style={"width": "400px", "margin-bottom": "10px"},
+                ),
+                id="collapse_etablierung",
+                is_open=False,
+            ),
+    ]
+)
+
+collapse_benutzerfreundlichkeit = html.Div(
+    [
+        dbc.Button(
+            "Benutzerfreundlichkeit",
+            id="collapse_benutzerfreundlichkeit_button",
+            className="mb-3",
+            color="primary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            dbc.Card(
+                dbc.CardBody(
+                        "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
+                    ),
+                    style={"width": "400px", "margin-bottom": "10px"},
+                ),
+                id="collapse_benutzerfreundlichkeit",
+                is_open=False,
+            ),
+    ]
+)
 
 # checkliste
 
@@ -159,7 +206,16 @@ container_slider_schnittstellen = html.Div(id="container_slider_schnittstellen",
     style= {'visibility': 'visible'}
 )
 
+# for later, if sliders go under checkboxes and need a label:
+# container_slider_etablierung = html.Div(id="container_slider_etablierung", 
+#     children=[
+#         dbc.Label("Etablierung", className="h6"),
+#         dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_etablierung')
+#     ],
+#     style= {'visibility': 'visible'}
+# )
 
+# some leftover formatting for later use:
 #     ], style={
 #         'width': '100%',
 #         'display': 'inline-block'
@@ -183,6 +239,10 @@ fig = html.Div(
 
 # region create layout
 
+# TODO place the headers above checklist and sliders in dedicated row OR card OR cardgroup, so they always have the same height and therefore checklist and sliders stay aligned
+
+collapse_row = dbc.Card([collapse_etablierung, collapse_benutzerfreundlichkeit], className="border-0")
+
 checklist = dbc.Card([check_potential], className="border-0")
 
 sliders = dbc.Card([
@@ -205,6 +265,12 @@ chart1 = dbc.Card([fig], body=True)
 app.layout = dbc.Container(
     [
         header,
+        dbc.Row
+        (
+            dbc.Col([collapse_row],
+            width=11
+            )
+        ),
         dbc.Row
         (
             [
@@ -453,6 +519,41 @@ def show_hide_sstellen(selected_boxes):
     else:
         return {'visibility': 'hidden'}   
 # endregion
+
+@app.callback(
+    Output("collapse_etablierung", "is_open"),
+    [Input("collapse_etablierung_button", "n_clicks")],
+    [State("collapse_etablierung", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+@app.callback(
+    Output("collapse_benutzerfreundlichkeit", "is_open"),
+    [Input("collapse_benutzerfreundlichkeit_button", "n_clicks")],
+    [State("collapse_benutzerfreundlichkeit", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+#TODO create callback for dynamic text field with nested if condition:
+# https://www.w3schools.com/python/python_conditions.asp
+#
+# max_value = [place label of highest value tool here] 
+#
+# if max_value = "bi"
+#   return text_bi
+#       if "benutzerfreundlichkeit" in selected_potentials
+#           return text_benutzerfreundlichkeit
+# ...
+# if max_value = "spreadsheet"
+#   return text_spreadsheet
+#       if "benutzerfreundlichkeit" in selected_potentials
+#           return text_benutzerfreundlichkeit 
 
 # run server
 if __name__ == '__main__':
