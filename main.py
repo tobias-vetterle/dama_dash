@@ -79,7 +79,182 @@ collapse_benutzerfreundlichkeit = html.Div(
     ]
 )
 
-# checkliste
+collapse_anschaffungskosten = html.Div(
+    [
+        dbc.Button(
+            "Anschaffungskosten",
+            id="collapse_anschaffungskosten_button",
+            className="mb-3",
+            color="primary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            dbc.Card(
+                dbc.CardBody(
+                        "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
+                    ),
+                    style={"width": "400px", "margin-bottom": "10px"},
+                ),
+                id="collapse_anschaffungskosten",
+                is_open=False,
+            ),
+    ]
+)
+
+collapse_integration = html.Div(
+    [
+        dbc.Button(
+            "Integration",
+            id="collapse_integration_button",
+            className="mb-3",
+            color="primary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            dbc.Card(
+                dbc.CardBody(
+                        "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
+                    ),
+                    style={"width": "400px", "margin-bottom": "10px"},
+                ),
+                id="collapse_integration",
+                is_open=False,
+            ),
+    ]
+)
+
+collapse_zusammenarbeit = html.Div(
+    [
+        dbc.Button(
+            "Zusammenarbeit",
+            id="collapse_zusammenarbeit_button",
+            className="mb-3",
+            color="primary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            dbc.Card(
+                dbc.CardBody(
+                        "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
+                    ),
+                    style={"width": "400px", "margin-bottom": "10px"},
+                ),
+                id="collapse_zusammenarbeit",
+                is_open=False,
+            ),
+    ]
+)
+
+collapse_datenmengen = html.Div(
+    [
+        dbc.Button(
+            "Datenmengen",
+            id="collapse_datenmengen_button",
+            className="mb-3",
+            color="primary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            dbc.Card(
+                dbc.CardBody(
+                        "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
+                    ),
+                    style={"width": "400px", "margin-bottom": "10px"},
+                ),
+                id="collapse_datenmengen",
+                is_open=False,
+            ),
+    ]
+)
+
+collapse_datenqualitaet = html.Div(
+    [
+        dbc.Button(
+            "Datenqualität",
+            id="collapse_datenqualitaet_button",
+            className="mb-3",
+            color="primary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            dbc.Card(
+                dbc.CardBody(
+                        "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
+                    ),
+                    style={"width": "400px", "margin-bottom": "10px"},
+                ),
+                id="collapse_datenqualitaet",
+                is_open=False,
+            ),
+    ]
+)
+
+collapse_benutzerfreundlichkeit = html.Div(
+    [
+        dbc.Button(
+            "Benutzerfreundlichkeit",
+            id="collapse_benutzerfreundlichkeit_button",
+            className="mb-3",
+            color="primary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            dbc.Card(
+                dbc.CardBody(
+                        "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
+                    ),
+                    style={"width": "400px", "margin-bottom": "10px"},
+                ),
+                id="collapse_benutzerfreundlichkeit",
+                is_open=False,
+            ),
+    ]
+)
+
+collapse_benutzerfreundlichkeit = html.Div(
+    [
+        dbc.Button(
+            "Benutzerfreundlichkeit",
+            id="collapse_benutzerfreundlichkeit_button",
+            className="mb-3",
+            color="primary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            dbc.Card(
+                dbc.CardBody(
+                        "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
+                    ),
+                    style={"width": "400px", "margin-bottom": "10px"},
+                ),
+                id="collapse_benutzerfreundlichkeit",
+                is_open=False,
+            ),
+    ]
+)
+
+collapse_benutzerfreundlichkeit = html.Div(
+    [
+        dbc.Button(
+            "Benutzerfreundlichkeit",
+            id="collapse_benutzerfreundlichkeit_button",
+            className="mb-3",
+            color="primary",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            dbc.Card(
+                dbc.CardBody(
+                        "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
+                    ),
+                    style={"width": "400px", "margin-bottom": "10px"},
+                ),
+                id="collapse_benutzerfreundlichkeit",
+                is_open=False,
+            ),
+    ]
+)
+# checklist
 
 check_potential = html.Div(
     [
@@ -241,7 +416,7 @@ fig = html.Div(
 
 # TODO place the headers above checklist and sliders in dedicated row OR card OR cardgroup, so they always have the same height and therefore checklist and sliders stay aligned
 
-collapse_row = dbc.Card([collapse_etablierung, collapse_benutzerfreundlichkeit], className="border-0")
+#collapse_row = dbc.Card([collapse_etablierung, collapse_benutzerfreundlichkeit], className="border-0")
 
 checklist = dbc.Card([check_potential], className="border-0")
 
@@ -266,10 +441,21 @@ app.layout = dbc.Container(
     [
         header,
         dbc.Row
-        (
-            dbc.Col([collapse_row],
-            width=11
-            )
+        ([
+            dbc.Col([collapse_etablierung]),
+            dbc.Col([collapse_benutzerfreundlichkeit]),
+            dbc.Col([collapse_etablierung]),
+            dbc.Col([collapse_benutzerfreundlichkeit]),
+            dbc.Col([collapse_etablierung]),
+            dbc.Col([collapse_benutzerfreundlichkeit]),
+            dbc.Col([collapse_etablierung]),
+            dbc.Col([collapse_benutzerfreundlichkeit]),
+            dbc.Col([collapse_etablierung]),
+            dbc.Col([collapse_benutzerfreundlichkeit]),
+            dbc.Col([collapse_etablierung]),
+            dbc.Col([collapse_benutzerfreundlichkeit]),
+            #width=11
+          ]  
         ),
         dbc.Row
         (
