@@ -33,8 +33,7 @@ server = app.server
 header = html.H4("Softwaresondierung",
                  className="bg-primary text-white p-3 mb-2 text-center")
 
-# TODO add horizontal row of collapse components with explanatory text describing the items:
-
+ 
 collapse_etablierung = html.Div(
     [
         dbc.Button(
@@ -450,6 +449,7 @@ container_slider_nachhaltigkeit = html.Div(id="container_slider_nachhaltigkeit",
 
 container_slider_dashboards = html.Div(id="container_slider_dashboards", 
     children=[
+        dbc.Label("Dashboards", className="small"),
         dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_dashboards'),
     ],
     style= {'visibility': 'visible'}
@@ -457,9 +457,10 @@ container_slider_dashboards = html.Div(id="container_slider_dashboards",
 
 container_slider_schnittstellen = html.Div(id="container_slider_schnittstellen", 
     children=[
+        dbc.Label("Schnittstellen", className="small"),
         dcc.Slider(min=min_var, max=max_var, step=step_var, value=value_var, marks=marks_dict, id='slider_schnittstellen')
     ],
-    style= {'visibility': 'visible'}
+    style= {'visibility': 'visible', 'display': 'flex'}
 )
 
 # for later, if sliders go under checkboxes and need a label:
@@ -553,16 +554,17 @@ app.layout = dbc.Container(
                         xs=10, sm=8, md=5, lg=3, xl=3,
                         style={"height": "80%"}
                         ),
-                dbc.Col([sliders],
-                        #width=3,
-                        xs=10, sm=8, md=5, lg=3, xl=3,
-                        style={"height": "80%"}
-                        ),
                 dbc.Col([chart1],
                         #width=6,
                         xs=10, sm=8, md=5, lg=12, xl=5,
                         style={"height": "80%"}
                         ),
+                dbc.Col([sliders],
+                        #width=3,
+                        xs=10, sm=8, md=5, lg=3, xl=3,
+                        style={"height": "80%"}
+                        ),
+
             ],
             className="vh-50, g-6",
             justify="center"
