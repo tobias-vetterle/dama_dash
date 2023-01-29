@@ -42,6 +42,8 @@ collapse_etablierung = html.Div(
             id="collapse_etablierung_button",
             className="mb-3",
             color="primary",
+            outline=True,
+            size="sm",
             n_clicks=0,
         ),
         dbc.Collapse(
@@ -64,6 +66,8 @@ collapse_benutzerfreundlichkeit = html.Div(
             id="collapse_benutzerfreundlichkeit_button",
             className="mb-3",
             color="primary",
+            outline=True,
+            size="sm",
             n_clicks=0,
         ),
         dbc.Collapse(
@@ -86,6 +90,8 @@ collapse_anschaffungskosten = html.Div(
             id="collapse_anschaffungskosten_button",
             className="mb-3",
             color="primary",
+            outline=True,
+            size="sm",
             n_clicks=0,
         ),
         dbc.Collapse(
@@ -108,6 +114,8 @@ collapse_integration = html.Div(
             id="collapse_integration_button",
             className="mb-3",
             color="primary",
+            outline=True,
+            size="sm",
             n_clicks=0,
         ),
         dbc.Collapse(
@@ -130,6 +138,8 @@ collapse_zusammenarbeit = html.Div(
             id="collapse_zusammenarbeit_button",
             className="mb-3",
             color="primary",
+            outline=True,
+            size="sm",
             n_clicks=0,
         ),
         dbc.Collapse(
@@ -152,6 +162,8 @@ collapse_datenmengen = html.Div(
             id="collapse_datenmengen_button",
             className="mb-3",
             color="primary",
+            outline=True,
+            size="sm",
             n_clicks=0,
         ),
         dbc.Collapse(
@@ -174,6 +186,8 @@ collapse_datenqualitaet = html.Div(
             id="collapse_datenqualitaet_button",
             className="mb-3",
             color="primary",
+            outline=True,
+            size="sm",
             n_clicks=0,
         ),
         dbc.Collapse(
@@ -189,13 +203,15 @@ collapse_datenqualitaet = html.Div(
     ]
 )
 
-collapse_benutzerfreundlichkeit = html.Div(
+collapse_datenanalyse = html.Div(
     [
         dbc.Button(
-            "Benutzerfreundlichkeit",
-            id="collapse_benutzerfreundlichkeit_button",
+            "Datenanalyse",
+            id="collapse_datenanalyse_button",
             className="mb-3",
             color="primary",
+            outline=True,
+            size="sm",
             n_clicks=0,
         ),
         dbc.Collapse(
@@ -205,19 +221,21 @@ collapse_benutzerfreundlichkeit = html.Div(
                     ),
                     style={"width": "400px", "margin-bottom": "10px"},
                 ),
-                id="collapse_benutzerfreundlichkeit",
+                id="collapse_datenanalyse",
                 is_open=False,
             ),
     ]
 )
 
-collapse_benutzerfreundlichkeit = html.Div(
+collapse_rechtemanagement = html.Div(
     [
         dbc.Button(
-            "Benutzerfreundlichkeit",
-            id="collapse_benutzerfreundlichkeit_button",
+            "Rechtemanagement",
+            id="collapse_rechtemanagement_button",
             className="mb-3",
             color="primary",
+            outline=True,
+            size="sm",
             n_clicks=0,
         ),
         dbc.Collapse(
@@ -227,19 +245,21 @@ collapse_benutzerfreundlichkeit = html.Div(
                     ),
                     style={"width": "400px", "margin-bottom": "10px"},
                 ),
-                id="collapse_benutzerfreundlichkeit",
+                id="collapse_rechtemanagement",
                 is_open=False,
             ),
     ]
 )
 
-collapse_benutzerfreundlichkeit = html.Div(
+collapse_nachhaltigkeit = html.Div(
     [
         dbc.Button(
-            "Benutzerfreundlichkeit",
-            id="collapse_benutzerfreundlichkeit_button",
+            "Nachhaltigkeit",
+            id="collapse_nachhaltigkeit_button",
             className="mb-3",
             color="primary",
+            outline=True,
+            size="sm",
             n_clicks=0,
         ),
         dbc.Collapse(
@@ -249,7 +269,55 @@ collapse_benutzerfreundlichkeit = html.Div(
                     ),
                     style={"width": "400px", "margin-bottom": "10px"},
                 ),
-                id="collapse_benutzerfreundlichkeit",
+                id="collapse_nachhaltigkeit",
+                is_open=False,
+            ),
+    ]
+)
+
+collapse_dashboards = html.Div(
+    [
+        dbc.Button(
+            "Dashboards",
+            id="collapse_dashboards_button",
+            className="mb-3",
+            color="primary",
+            outline=True,
+            size="sm",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            dbc.Card(
+                dbc.CardBody(
+                        "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
+                    ),
+                    style={"width": "400px", "margin-bottom": "10px"},
+                ),
+                id="collapse_dashboards",
+                is_open=False,
+            ),
+    ]
+)
+
+collapse_schnittstellen = html.Div(
+    [
+        dbc.Button(
+            "Schnittstellen",
+            id="collapse_schnittstellen_button",
+            className="mb-3",
+            color="primary",
+            outline=True,
+            size="sm",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            dbc.Card(
+                dbc.CardBody(
+                        "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
+                    ),
+                    style={"width": "400px", "margin-bottom": "10px"},
+                ),
+                id="collapse_schnittstellen",
                 is_open=False,
             ),
     ]
@@ -390,14 +458,6 @@ container_slider_schnittstellen = html.Div(id="container_slider_schnittstellen",
 #     style= {'visibility': 'visible'}
 # )
 
-# some leftover formatting for later use:
-#     ], style={
-#         'width': '100%',
-#         'display': 'inline-block'
-#     },
-#     className="mb-4",
-# )
-
 # diagramm
 fig = html.Div(
     [dcc.Graph
@@ -405,7 +465,7 @@ fig = html.Div(
         id='radar-graph',
         config={'displayModeBar': True},
         #style={'width': '80vh', 'height': '40vh', 'display': 'inline-block'},
-        style={'height': '60vh'},
+        style={'height': '100vh'},
     ),
     ],
 )
@@ -416,7 +476,6 @@ fig = html.Div(
 
 # TODO place the headers above checklist and sliders in dedicated row OR card OR cardgroup, so they always have the same height and therefore checklist and sliders stay aligned
 
-#collapse_row = dbc.Card([collapse_etablierung, collapse_benutzerfreundlichkeit], className="border-0")
 
 checklist = dbc.Card([check_potential], className="border-0")
 
@@ -442,41 +501,42 @@ app.layout = dbc.Container(
         header,
         dbc.Row
         ([
-            dbc.Col([collapse_etablierung]),
-            dbc.Col([collapse_benutzerfreundlichkeit]),
-            dbc.Col([collapse_etablierung]),
-            dbc.Col([collapse_benutzerfreundlichkeit]),
-            dbc.Col([collapse_etablierung]),
-            dbc.Col([collapse_benutzerfreundlichkeit]),
-            dbc.Col([collapse_etablierung]),
-            dbc.Col([collapse_benutzerfreundlichkeit]),
-            dbc.Col([collapse_etablierung]),
-            dbc.Col([collapse_benutzerfreundlichkeit]),
-            dbc.Col([collapse_etablierung]),
-            dbc.Col([collapse_benutzerfreundlichkeit]),
-            #width=11
-          ]  
+            dbc.Col([collapse_etablierung], xs=6, sm=3, md=2, lg=2, xl=1,),
+            dbc.Col([collapse_benutzerfreundlichkeit], xs=6, sm=3, md=2, lg=2, xl=1,),
+            dbc.Col([collapse_anschaffungskosten], xs=6, sm=3, md=2, lg=2, xl=1,),
+            dbc.Col([collapse_integration], xs=6, sm=3, md=2, lg=2, xl=1,),
+            dbc.Col([collapse_zusammenarbeit], xs=6, sm=3, md=2, lg=2, xl=1,),
+            dbc.Col([collapse_datenmengen], xs=6, sm=3, md=2, lg=2, xl=1,),
+            dbc.Col([collapse_datenqualitaet], xs=6, sm=3, md=2, lg=2, xl=1,),
+            dbc.Col([collapse_datenanalyse], xs=6, sm=3, md=2, lg=2, xl=1,),
+            dbc.Col([collapse_rechtemanagement], xs=6, sm=3, md=2, lg=2, xl=1,),
+            dbc.Col([collapse_nachhaltigkeit], xs=6, sm=3, md=2, lg=2, xl=1,),
+            dbc.Col([collapse_dashboards], xs=6, sm=3, md=2, lg=2, xl=1,),
+            dbc.Col([collapse_schnittstellen], xs=6, sm=3, md=2, lg=2, xl=1,),
+          ],
+          justify="center"
         ),
         dbc.Row
         (
             [
                 dbc.Col([checklist],
-                        width=2,
-                        #xs=10, sm=8, md=5, lg=6, xl=5,
+                        #width=2,
+                        xs=10, sm=8, md=5, lg=3, xl=5,
                         style={"height": "80%"}
                         ),
                 dbc.Col([sliders],
-                        width=3,
-                        #xs=10, sm=8, md=5, lg=6, xl=5,
+                        #width=3,
+                        xs=10, sm=8, md=5, lg=3, xl=5,
                         style={"height": "80%"}
                         ),
                 dbc.Col([chart1],
-                        width=6,
-                        #xs=10, sm=8, md=5, lg=6, xl=5,
+                        #width=6,
+                        xs=10, sm=8, md=5, lg=12, xl=5,
                         style={"height": "80%"}
                         ),
             ],
-            className="vh-50, g-6"
+            className="vh-50, g-6",
+            justify="center"
         ),
     ],
     fluid=True,
@@ -706,6 +766,7 @@ def show_hide_sstellen(selected_boxes):
         return {'visibility': 'hidden'}   
 # endregion
 
+# region callbacks for collapse buttons
 @app.callback(
     Output("collapse_etablierung", "is_open"),
     [Input("collapse_etablierung_button", "n_clicks")],
@@ -725,6 +786,107 @@ def toggle_collapse(n, is_open):
     if n:
         return not is_open
     return is_open
+
+@app.callback(
+    Output("collapse_anschaffungskosten", "is_open"),
+    [Input("collapse_anschaffungskosten_button", "n_clicks")],
+    [State("collapse_anschaffungskosten", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+@app.callback(
+    Output("collapse_integration", "is_open"),
+    [Input("collapse_integration_button", "n_clicks")],
+    [State("collapse_integration", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+@app.callback(
+    Output("collapse_zusammenarbeit", "is_open"),
+    [Input("collapse_zusammenarbeit_button", "n_clicks")],
+    [State("collapse_zusammenarbeit", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+@app.callback(
+    Output("collapse_datenmengen", "is_open"),
+    [Input("collapse_datenmengen_button", "n_clicks")],
+    [State("collapse_datenmengen", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+@app.callback(
+    Output("collapse_datenqualitaet", "is_open"),
+    [Input("collapse_datenqualitaet_button", "n_clicks")],
+    [State("collapse_datenqualitaet", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+@app.callback(
+    Output("collapse_datenanalyse", "is_open"),
+    [Input("collapse_datenanalyse_button", "n_clicks")],
+    [State("collapse_datenanalyse", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+@app.callback(
+    Output("collapse_rechtemanagement", "is_open"),
+    [Input("collapse_rechtemanagement_button", "n_clicks")],
+    [State("collapse_rechtemanagement", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+@app.callback(
+    Output("collapse_nachhaltigkeit", "is_open"),
+    [Input("collapse_nachhaltigkeit_button", "n_clicks")],
+    [State("collapse_nachhaltigkeit", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+@app.callback(
+    Output("collapse_dashboards", "is_open"),
+    [Input("collapse_dashboards_button", "n_clicks")],
+    [State("collapse_dashboards", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+@app.callback(
+    Output("collapse_schnittstellen", "is_open"),
+    [Input("collapse_schnittstellen_button", "n_clicks")],
+    [State("collapse_schnittstellen", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+# endregion
 
 #TODO create callback for dynamic text field with nested if condition:
 # https://www.w3schools.com/python/python_conditions.asp
