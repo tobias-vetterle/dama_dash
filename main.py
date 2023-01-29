@@ -326,9 +326,9 @@ collapse_schnittstellen = html.Div(
 
 check_potential = html.Div(
     [
-        dbc.Label("Wählen Sie aus der Liste aus, welche Anforderungen die von Ihnen gesuchte Software-Lösung für das kommunale Datenmanagement erfüllen soll:", 
-            style={"margin-bottom": "30px"}
-            ),
+        #dbc.Label("Wählen Sie aus der Liste aus, welche Anforderungen die von Ihnen gesuchte Software-Lösung für das kommunale Datenmanagement erfüllen soll:", 
+        #    style={"margin-bottom": "30px"}
+        #    ),
         dcc.Checklist(
             df['Potenzial'].unique(),
             id="check_potential",
@@ -336,6 +336,19 @@ check_potential = html.Div(
             #labelStyle = dict(display='block'), 
             labelStyle = {"display": "block", "margin-bottom": "15px"}, # places each checkbox in a single line, margin-bottom creates space between labels
             inputStyle={"margin-right": "10px"}, # creates space between checkbox and label
+        ),
+    ], style={
+        'width': '100%',
+        'display': 'inline-block'
+    },
+    className="mb-4",
+)
+
+# header for checklist
+header_checklist = html.Div(
+    [
+    dbc.Label("Die Anforderungen an eine Datenmanagement-Lösung variieren von Fall zu Fall. Wählen Sie aus der Liste aus, welche Anforderungen die von Ihnen gesuchte Software-Lösung für das kommunale Datenmanagement erfüllen soll: ",
+        style={"margin-bottom": "13px"}
         ),
     ], style={
         'width': '100%',
@@ -465,7 +478,7 @@ fig = html.Div(
         id='radar-graph',
         config={'displayModeBar': True},
         #style={'width': '80vh', 'height': '40vh', 'display': 'inline-block'},
-        style={'height': '100vh'},
+        style={'height': '80vh'},
     ),
     ],
 )
@@ -477,7 +490,11 @@ fig = html.Div(
 # TODO place the headers above checklist and sliders in dedicated row OR card OR cardgroup, so they always have the same height and therefore checklist and sliders stay aligned
 
 
-checklist = dbc.Card([check_potential], className="border-0")
+checklist = dbc.Card([
+    header_checklist,
+    check_potential], 
+    className="border-0"
+    )
 
 sliders = dbc.Card([
     header_sliders, 
@@ -494,39 +511,51 @@ sliders = dbc.Card([
     container_slider_dashboards,
     container_slider_schnittstellen], className="border-0")
 
-chart1 = dbc.Card([fig], body=True)
+chart1 = dbc.Card([fig], body=True, className="border-0")
 
 app.layout = dbc.Container(
     [
         header,
         dbc.Row
         ([
-            dbc.Col([collapse_etablierung], xs=6, sm=3, md=2, lg=2, xl=1,),
-            dbc.Col([collapse_benutzerfreundlichkeit], xs=6, sm=3, md=2, lg=2, xl=1,),
-            dbc.Col([collapse_anschaffungskosten], xs=6, sm=3, md=2, lg=2, xl=1,),
-            dbc.Col([collapse_integration], xs=6, sm=3, md=2, lg=2, xl=1,),
-            dbc.Col([collapse_zusammenarbeit], xs=6, sm=3, md=2, lg=2, xl=1,),
-            dbc.Col([collapse_datenmengen], xs=6, sm=3, md=2, lg=2, xl=1,),
-            dbc.Col([collapse_datenqualitaet], xs=6, sm=3, md=2, lg=2, xl=1,),
-            dbc.Col([collapse_datenanalyse], xs=6, sm=3, md=2, lg=2, xl=1,),
-            dbc.Col([collapse_rechtemanagement], xs=6, sm=3, md=2, lg=2, xl=1,),
-            dbc.Col([collapse_nachhaltigkeit], xs=6, sm=3, md=2, lg=2, xl=1,),
-            dbc.Col([collapse_dashboards], xs=6, sm=3, md=2, lg=2, xl=1,),
-            dbc.Col([collapse_schnittstellen], xs=6, sm=3, md=2, lg=2, xl=1,),
+            dbc.Col([collapse_etablierung], xs=6, sm=3, md=2, lg=2, xl=2,),
+            dbc.Col([collapse_benutzerfreundlichkeit], xs=6, sm=3, md=2, lg=2, xl=2,),
+            dbc.Col([collapse_anschaffungskosten], xs=6, sm=3, md=2, lg=2, xl=2,),
+            dbc.Col([collapse_integration], xs=6, sm=3, md=2, lg=2, xl=2,),
+            dbc.Col([collapse_zusammenarbeit], xs=6, sm=3, md=2, lg=2, xl=2,),
+            dbc.Col([collapse_datenmengen], xs=6, sm=3, md=2, lg=2, xl=2,),
+            dbc.Col([collapse_datenqualitaet], xs=6, sm=3, md=2, lg=2, xl=2,),
+            dbc.Col([collapse_datenanalyse], xs=6, sm=3, md=2, lg=2, xl=2,),
+            dbc.Col([collapse_rechtemanagement], xs=6, sm=3, md=2, lg=2, xl=2,),
+            dbc.Col([collapse_nachhaltigkeit], xs=6, sm=3, md=2, lg=2, xl=2,),
+            dbc.Col([collapse_dashboards], xs=6, sm=3, md=2, lg=2, xl=2,),
+            dbc.Col([collapse_schnittstellen], xs=6, sm=3, md=2, lg=2, xl=2,),
           ],
           justify="center"
         ),
+        # dbc.Row
+        # (
+        #     [
+        #         dbc.Col([header_checklist],
+        #                 xs=10, sm=8, md=5, lg=3, xl=3,
+        #         ),
+        #         dbc.Col([header_sliders],
+        #                 xs=10, sm=8, md=5, lg=3, xl=3,
+        #         )
+        #     ],
+        #     justify="center"
+        # ),
         dbc.Row
         (
             [
                 dbc.Col([checklist],
                         #width=2,
-                        xs=10, sm=8, md=5, lg=3, xl=5,
+                        xs=10, sm=8, md=5, lg=3, xl=3,
                         style={"height": "80%"}
                         ),
                 dbc.Col([sliders],
                         #width=3,
-                        xs=10, sm=8, md=5, lg=3, xl=5,
+                        xs=10, sm=8, md=5, lg=3, xl=3,
                         style={"height": "80%"}
                         ),
                 dbc.Col([chart1],
