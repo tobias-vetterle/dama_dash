@@ -1,31 +1,68 @@
-import pandas as pd
-import plotly.express as px
+# write an application in python, using the library "dash".
+
+# the application should contain a bar plot and a dropdown element. 
+
+# start the app server at the end of the code.
+
+# use a random data set.
+
+import dash
 from dash import dcc
 from dash import html
 from dash import Dash
-from dash.dependencies import Input, Output
-import dash_bootstrap_components as dbc
+import pandas as pd
+import plotly.graph_objs as go
 
-# read data
+# import random data set
+df = pd.DataFrame({"x": [1, 2, 3, 4], "y": [1, 2, 3, 4]})
 
-df = pd.read_csv("data.csv", encoding='utf-8-sig', sep=';')
-dff = df
+# create the app
+app = Dash(__name__)
 
-dff.astype({"spreadsheet": 'float64',
-                "language": 'float64',
-                "bi": 'float64'
-                })
+server = app.server
 
-bi_val = dff['bi'].sum()
+# create bar plot
+app.layout = html.Div([
+    # create a dropdown element
+    dcc.Dropdown(
+        id='graph-dropdown',
+        options=[
+            {'label': 'Bar Plot', 'value': 'bar'},
+            {'label': 'Scatter Plot', 'value': 'scatter'},
+        ],
+        value='bar'
+    ),
+    dcc.Graph(id='graph')
+])
 
-spreadsheet_val = dff['spreadsheet'].sum()
+# update the graph based on the dropdown selection
+@app.callback(
+    dash.dependencies.Output('graph', 'figure'),
+    [dash.dependencies.Input('graph-dropdown', 'value')])
 
-language_val = dff['language'].sum()
+def update_graph(dropdown_value):
+    if dropdown_value == 'bar':
+        return {
+            'data': [go.Bar(
+                x=df['x'],
+                y=df['y']
+            )],
+            'layout': go.Layout(
+                title='Bar Plot'
+            )
+        }
+    elif dropdown_value == 'scatter':
+        return {
+            'data': [go.Scatter(
+                x=df['x'],
+                y=df['y'],
+                mode='markers'
+            )],
+            'layout': go.Layout(
+                title='Scatter Plot'
+            )
+        }
 
-df_radar = pd.DataFrame(dict(
-        r=[bi_val, spreadsheet_val, language_val],
-        theta=['BI', 'Tabellenkalkulation', 'Programmiersprache']))
-
-fig = px.line_polar(df_radar, r='r', theta='theta', line_close=True)
-
-fig.show()
+# run the server
+if __name__ == '__main__':
+    app.run_server(port=3003)

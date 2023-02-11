@@ -30,7 +30,7 @@ server = app.server
 
 # region create html components: header
 
-header = html.H4("Softwaresondierung",
+header = html.H4("Softwarelösungen für das kommunale (Bildungs)Datenmanagement",
                  className="bg-primary text-white p-3 mb-2 text-center")
 # endregion
  
@@ -517,7 +517,7 @@ tab1_content = dbc.Card(
         ],
         #style={"width": "400px", "margin-bottom": "10px"},
     ),
-    className="mt-3",
+    className="mt-3 border-0",
 )
 
 tab2_content = dbc.Card(
@@ -526,7 +526,7 @@ tab2_content = dbc.Card(
             html.P("Etablierung und Verfügbarkeit in der kommunalen Verwaltung: Tabellenkalkulationssoftware ist auf den meisten Arbeitsrechnern der Kommunalverwaltung vorinstalliert und entsprechend weit verbreitet. Kombinierte Datenbank/BI-Tools und statistische Programmiersprachen müssen meist zunächst ausgewählt, angeschafft und eingeführt werden.", className="card-text"),
         ]
     ),
-    className="mt-3",
+    className="mt-3 border-0",
 )
 
 tab3_content = dbc.Card(
@@ -535,7 +535,7 @@ tab3_content = dbc.Card(
             html.P("Benutzerfreundlichkeit und Einarbeitungsaufwand: Tabellenkalkulationssoftware verfügt über eine relativ intuitive Benutzeroberfläche mit vielen vorgefertigten Optionen zur Datenanalyse und -visualisierung. Die Veränderung von Datensätzen erfolgt durch direkte Eingabe in Zellen. Kombinierte Datenbank-/BI-Tools sind in der Einarbeitung aufwändiger, wenngleich moderne Anwendungen mittlerweile großen Wert auf eine benutzerfreundliche Oberfläche legen. Statistische Programmiersprachen schließlich erfordern den höchsten Einarbeitungsaufwand, da hier meist mit Befehlszeilen statt einer klassischen Benutzeroberfläche gearbeitet wird.", className="card-text"),
         ]
     ),
-    className="mt-3",
+    className="mt-3 border-0",
 )
 
 tab4_content = dbc.Card(
@@ -544,7 +544,7 @@ tab4_content = dbc.Card(
             html.P("Anschaffungskosten: Tabellenkalkulationssoftware ist in der Regel auf Arbeitsrechnern vorinstalliert, sodass die Frage nach Anschaffungskosten zumeist gar nicht aufkommt. Kombinierte Datenbank-/BI-Tools können vergleichsweise teuer in der Anschaffung sein. Statistische Programmiersprachen hingegen sind frei verfügbar; Kosten fallen hier maximal für die Lizenzierung einer Entwicklungsumgebung an, falls nicht auf freie Software zurückgegriffen wird.", className="card-text"),
         ]
     ),
-    className="mt-3",
+    className="mt-3 border-0",
 )
 
 tab5_content = dbc.Card(
@@ -553,7 +553,7 @@ tab5_content = dbc.Card(
             html.P("Möglichkeit der Zusammenführung und Integration von Datensätzen aus unterschiedlichen Quellen. Tabellen sind innerhalb einer Kalkulationssoftware statisch und untereinander zumeist nicht verknüpft. Diese Verknüpfungen müssen manuell hergestellt werden, wobei Daten aus anderen Tabellen abgerufen werden. Es bleiben jedoch getrennt voneinander bestehende Dateien. Ändert sich ein Dateiname oder Speicherort, müssen die Verknüpfungen aktualisiert werden. Gleiches gilt für die Arbeit mit statistischen Programmiersprachen. Datenbanken hingegen sind standardmäßig relational, d.h. die in ihnen enthaltenen Daten sind im Rahmen eines Datenmodells miteinander verknüpft.", className="card-text"),
         ]
     ),
-    className="mt-3",
+    className="mt-3 border-0",
 )
 
 tab6_content = dbc.Card(
@@ -562,7 +562,7 @@ tab6_content = dbc.Card(
             html.P("Möglichkeit der effektiven Zusammenarbeit mehrerer Nutzer an derselben Datenbasis. Die Bearbeitung von Tabellen per Kalkulationssoftware im Rahmen einer Cloudlösung ermöglicht ein Mindestmaß an Zusammenarbeitsmöglichkeiten. Gleiches gilt für die Arbeit mit statistischen Programmiersprachen. Kombinierte Datenbank-/BI-Tools sind dagegen für die Bearbeitung durch eine große Anzahl an Nutzern ausgelegt. Daten, die durch einen Nutzer eingegeben oder verändert werden, stehen sofort allen anderen Nutzern zur Verfügung, da sich alle auf dieselbe Datengrundlage beziehen.", className="card-text"),
         ]
     ),
-    className="mt-3",
+    className="mt-3 border-0",
 )
 
 tab7_content = dbc.Card(
@@ -571,7 +571,7 @@ tab7_content = dbc.Card(
             html.P("Eignung zur effizienten Verarbeitung großer Datenmengen. Tabellen innerhalb einer Kalkulationssoftware laden jederzeit alle enthaltenen Daten und stellen sie für weitere Analyse- und Filteroperationen bereit. Das ist zunächst gut, um sich rasch einen Überblick zu verschaffen, kann aber den Arbeitsspeicher von Rechnern schnell an seine Grenzen bringen, sobald Tabellen einen gewissen Umfang erreichen. Statistische Programmiersprachen eignen sich in diesem Fall besser, da sie ab einer gewissen Datenmenge dieselben Rechenoperationen wesentlich schneller erledigen. Ähnliches gilt für kombinierte Datenbank-/BI-Tools, da diese die eigentlichen Daten im Hintergrund speichern und nur jene Ausschnitte laden, die zur Analyse und Betrachtung angefragt werden. Tabellenkalkulationssoftware ist daher für die Arbeit mit kleineren Datensätzen geeignet und ermöglicht deren schnelle Bearbeitung, während Datenbank-/BI-Systeme sowie statistische Programmiersprachen ihre Stärken bei der Verarbeitung großer bis sehr großer Datensätze entfalten.", className="card-text"),
         ]
     ),
-    className="mt-3",
+    className="mt-3 border-0",
 )
 
 tab8_content = dbc.Card(
@@ -580,7 +580,7 @@ tab8_content = dbc.Card(
             html.P("Wirksame Funktionen und Mechanismen zum Schutz der Datenqualität (v. a. hinsichtlich Validität und Einheitlichkeit). Tabellen innerhalb einer Kalkulationssoftware haben standardmäßig keine Beschränkungen, welche Spalte mit welchem Datentyp gefüllt werden kann. Dies bringt viel Flexibilität, geht jedoch auf Kosten der Integrität, v. a. bei der Zusammenarbeit mit vielen Nutzern. Ähnliches gilt für die Arbeit mit statistischen Programmiersprachen. Kombinierte Datenbank-/BI-Tools sehen standardmäßig vor, dass z. B. für jede Spalte Datentypen definiert werden. Wird Text in eine Zahlenspalte eingegeben, erfolgt eine Fehlermeldung.", className="card-text"),
         ]
     ),
-    className="mt-3",
+    className="mt-3 border-0",
 )
 
 tab9_content = dbc.Card(
@@ -589,7 +589,7 @@ tab9_content = dbc.Card(
             html.P("Leistungsfähige Funktionen zur Datenanalyse und -visualisierung. Tabellenkalkulationssoftware bietet eine Vielzahl an Analyseformeln sowie vorgefertigten Diagrammschablonen zur schnellen Datenanalyse und -visualisierung. Die diesbezüglichen Möglichkeiten von kombinierten Datenbank-/BI-Tools sind zumeist nicht viel weitreichender, wohingegen statistische Programmiersprachen durch die freie Verfügbarkeit einer Vielzahl an sog. „Bibliotheken“ zur Erweiterung des Funktionsumfangs schier unbegrenzte Möglichkeiten der Datenanalyse und -visualisierung bieten.", className="card-text"),
         ]
     ),
-    className="mt-3",
+    className="mt-3 border-0",
 )
 
 tab10_content = dbc.Card(
@@ -598,7 +598,7 @@ tab10_content = dbc.Card(
             html.P("Leistungsfähiges Rechtemanagement, welches den Datenzugriff steuert und die Einhaltung von Datenschutzregeln ermöglicht. Kombinierte Datenbank-/BI-Tools machen es dem Anwender leicht, den Zugriff der Nutzer auf Datensätze zu kontrollieren und differenziert zu steuern. Softwareprodukte für Tabellenkalkulation haben hier weitaus weniger Möglichkeiten: Wenn z. B. ein Dashboard im Format der Tabellenkalkulationssoftware geteilt wird, hat der Nutzer uneingeschränkten Zugriff auf die dahinterliegenden Daten. Gleiches gilt für die Arbeit mit statistischen Programmiersprachen. Durch den Einsatz von Passwörtern lässt sich der Lese- und Schreibzugriff in gewissem Umfang kontrollieren, doch die Steuerungsmöglichkeiten bleiben deutlich hinter denen eines kombinierten Datenbank-/BI-Tools zurück.", className="card-text"),
         ]
     ),
-    className="mt-3",
+    className="mt-3 border-0",
 )
 
 tab11_content = dbc.Card(
@@ -607,7 +607,7 @@ tab11_content = dbc.Card(
             html.P("Nachhaltigkeit durch nachvollziehbare und nachnutzbare Bearbeitungs- und Dokumentationsformate. Während die Möglichkeiten des syntaxbasierten Bearbeitens von Daten (also des Bearbeitens per Befehlssprache) inklusive der Speicherung und Automatisierung bestimmter Datenaufbereitungsschritte in Tabellenkalkulationsprogrammen eingeschränkt sind, ist dies in statistischen Programmiersprachen ein Standardverfahren und trägt somit zu einem personenunabhängigeren Datenmanagement bei.", className="card-text"),
         ]
     ),
-    className="mt-3",
+    className="mt-3 border-0",
 )
 
 tab12_content = dbc.Card(
@@ -616,7 +616,7 @@ tab12_content = dbc.Card(
             html.P("Leistungsfähige Funktionen zur Erstellung von Berichten und Dashboards. Über die Verknüpfung einer „Berichts“-Tabelle mit mehreren Datentabellen lassen sich auch mit Tabellenkalkulationssoftware automatisch aktualisierte Berichte oder Dashboards erstellen. Jedoch übertragen sich hier die Nachteile der Aspekte „Analyse und Visualisierung“, „Datenschutz und Rechtemanagement“ sowie „Zusammenführung von Datensätzen“ auf die so zusammengebauten Dashboards. Kombinierte Datenbank-/BI-Tools hingegen haben zumeist eigens für die Erstellung von Berichten und Dashboards vorgesehene Funktionsbereiche, die ein stabiles und auf die dahinterliegende Datenbank bezogenes Berichtssystem ermöglichen. Statistische Programmiersprachen ermöglichen durch die Installation entsprechender Bibliotheken ebenfalls die Erstellung von interaktiven Dashboards, allerdings darf auch hier der Einarbeitungsaufwand nicht unterschätzt werden (vgl. „Benutzerfreundlichkeit und Einarbeitungsaufwand“).", className="card-text"),
         ]
     ),
-    className="mt-3",
+    className="mt-3 border-0",
 )
 
 tab13_content = dbc.Card(
@@ -625,7 +625,7 @@ tab13_content = dbc.Card(
             html.P("Nutzung von Schnittstellen für die Bereitstellung und Publikation von Daten sowie deren Beschaffung im Rahmen neuer Datenprojekte. Sowohl statistische Programmiersprachen als auch kombinierte Datenbank-/BI-Tools bieten gute Möglichkeiten der Schnittstellenprogrammierung, z. B. zum Bezug von Daten aus Fachinformationssystemen und Datenbanken. Bei Tabellenkalkulationsprogrammen sind diese Möglichkeiten eingeschränkter.", className="card-text"),
         ]
     ),
-    className="mt-3",
+    className="mt-3 border-0",
 )
 
 
@@ -652,7 +652,7 @@ tabs = dbc.Tabs(
         dbc.Tab(tab12_content, label="Dashboards"),
         dbc.Tab(tab13_content, label="Schnittstellen"),
     ],
-    style={"margin-bottom": "13px"}
+    style={"margin-bottom": "13px"},
 )
 
 checklist = dbc.Card([
