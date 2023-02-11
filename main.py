@@ -28,10 +28,15 @@ server = app.server
 
 #endregion
 
-# region create html components: header
+# region create html components: headers
 
-header = html.H4("Softwarelösungen für das kommunale (Bildungs)Datenmanagement",
-                 className="bg-primary text-white p-3 mb-2 text-center")
+header = html.H3("Durchblick im Datendschungel",
+                 className="bg-primary mt-3 p-1 text-white text-center")
+
+sub_header = html.H6("Eine Entscheidungshilfe zur Auswahl von Softwarelösungen für das kommunale (Bildungs)Datenmanagement",
+                 className="bg-primary mb-2 p-1 pb-3 text-white text-center")
+                 #className="bg-primary text-white p-3 mb-2 text-center")
+
 # endregion
  
 # region create html components: collapse bar 
@@ -351,7 +356,7 @@ check_potential = html.Div(
 header_checklist = html.Div(
     [
     dbc.Label("Wählen Sie Ihre Anforderungen aus (mind. 1):",
-        style={"margin-bottom": "13px", "margin-top": "13px"}
+        style={"margin-bottom": "13px", "margin-top": "13px", "font-weight": "bold"}
         ),
     ], style={
         'width': '100%',
@@ -367,7 +372,7 @@ header_checklist = html.Div(
 header_sliders = html.Div(
     [
     dbc.Label("Gewichten Sie Ihre Anforderungen (optional):",
-        style={"margin-bottom": "13px", "margin-top": "13px"}
+        style={"margin-bottom": "13px", "margin-top": "13px", "font-weight": "bold"}
         ),
     ], style={
         'width': '100%',
@@ -506,19 +511,51 @@ fig = html.Div(
 
 # endregion
 
-# region create html components: tab bar
+# region create html components: intro text
 
-tab1_content = dbc.Card(
+# TODO integrate into text and tab bar in collar bar
+
+intro_text = dbc.Card(
     dbc.CardBody(
         [
-            html.P("Die Anforderungen an eine Datenmanagement-Lösung variieren je nach Anwendungsfall. Wählen Sie aus der linken Liste aus, welche Anforderungen die von Ihnen gesuchte Software-Lösung für das kommunale Datenmanagement erfüllen soll.", className="card-text"),
+            html.H6("Hinweise zur Bedienung", style={"font-weight": "bold"}),
+            html.P("Die Anforderungen an eine Datenmanagement-Lösung variieren im Einzelfall je nach kommunalen Zielstellungen, Bedarfen und Voraussetungen. Wählen Sie aus der linken Liste aus, welche Anforderungen die von Ihnen gesuchte Software-Lösung für das kommunale Datenmanagement erfüllen soll. Das Diagramm in der Mitte gibt Ihnen eine Einschätzung, welche Art von Software-Lösung zu Ihren Anforderungen passt.", className="card-text"),
             html.P("Für ein genaueres Ergebnis können Sie die ausgewählten Anforderungen mit den Schiebereglern rechts gewichten. Fragen Sie sich: 'Wie wichtig ist mir diese Anforderung im Vergleich zu den anderen ausgewählten Anforderungen?'", className="card-text"),
-            html.P("Klicken Sie auf die Tabs in dieser Leiste, um Erläuterungen zu den unten auswählbaren Anforderungen an ein kommunales Datenmanagement zu erhalten.", className="card-text"),
+            html.P("Klicken Sie auf die Tabs in der rechten Leiste, um Erläuterungen zu den unten auswählbaren Anforderungen an ein kommunales Datenmanagement zu erhalten.", className="card-text"),
         ],
         #style={"width": "400px", "margin-bottom": "10px"},
     ),
-    className="mt-3 border-0",
+    className="mt-3",
 )
+
+# collapse_etablierung = html.Div(
+#     [
+#         dbc.Button(
+#             "Etablierung",
+#             id="collapse_etablierung_button",
+#             className="mb-3",
+#             color="primary",
+#             outline=True,
+#             size="sm",
+#             n_clicks=0,
+#         ),
+#         dbc.Collapse(
+#             dbc.Card(
+#                 dbc.CardBody(
+#                         "Etablierung und Verfügbarkeit in der kommunalen Verwaltung"
+#                     ),
+#                     style={"width": "400px", "margin-bottom": "10px"},
+#                 ),
+#                 id="collapse_etablierung",
+#                 is_open=False,
+#             ),
+#     ]
+# )
+
+
+# endregion
+
+# region create html components: tab bar
 
 tab2_content = dbc.Card(
     dbc.CardBody(
@@ -634,11 +671,15 @@ tab13_content = dbc.Card(
 
 # region create layout
 
-# TODO place the headers above checklist and sliders in dedicated row OR card OR cardgroup, so they always have the same height and therefore checklist and sliders stay aligned
+
+headers = dbc.Card([
+    header,
+    sub_header], 
+    className="bg-primary border-0"
+    )
 
 tabs = dbc.Tabs(
     [
-        dbc.Tab(tab1_content, label="Einstieg"),
         dbc.Tab(tab2_content, label="Etablierung"),
         dbc.Tab(tab3_content, label="Benutzerfreundlichkeit"),
         dbc.Tab(tab4_content, label="Anschaffungskosten"),
@@ -653,12 +694,13 @@ tabs = dbc.Tabs(
         dbc.Tab(tab13_content, label="Schnittstellen"),
     ],
     style={"margin-bottom": "13px"},
+    className="pt-3"
 )
 
 checklist = dbc.Card([
     header_checklist,
     check_potential], 
-    className="border-0"
+    className="border-0 pt-3"
     )
 
 sliders = dbc.Card([
@@ -674,18 +716,27 @@ sliders = dbc.Card([
     container_slider_rechtemanagement,
     container_slider_nachhaltigkeit,
     container_slider_dashboards,
-    container_slider_schnittstellen], className="border-0")
+    container_slider_schnittstellen], 
+    className="border-0 pt-3")
 
-chart1 = dbc.Card([fig], body=True, className="border-0")
+chart1 = dbc.Card([fig], body=True, className="border-0 pt-3")
 
 app.layout = dbc.Container(
     [
-        header,
+        headers,
 
         dbc.Row(
             [
-                dbc.Col([tabs])
-            ]
+                dbc.Col(
+                    [intro_text],
+                    xs=10, sm=8, md=4, lg=4, xl=4,
+                ),
+                dbc.Col(
+                    [tabs],
+                    xs=10, sm=8, md=8, lg=8, xl=8
+                )
+            ],
+            className="px-4",
         ),
 
         # dbc.Row
@@ -716,7 +767,7 @@ app.layout = dbc.Container(
                         ),
                 dbc.Col([chart1],
                         #width=6,
-                        xs=10, sm=8, md=5, lg=12, xl=5,
+                        xs=10, sm=8, md=5, lg=12, xl=6,
                         style={"height": "80%"}
                         ),
                 dbc.Col([sliders],
@@ -726,7 +777,7 @@ app.layout = dbc.Container(
                         ),
 
             ],
-            className="vh-50, g-6",
+            className="vh-50 g-6 px-4",
             justify="center"
         ),
     ],
@@ -1081,6 +1132,8 @@ def show_hide_sstellen(selected_boxes):
 
 # endregion
 
+# region Todo
+
 #TODO create callback for dynamic text field with nested if condition:
 # https://www.w3schools.com/python/python_conditions.asp
 #
@@ -1095,10 +1148,12 @@ def show_hide_sstellen(selected_boxes):
 #   return text_spreadsheet
 #       if "benutzerfreundlichkeit" in selected_potentials
 #           return text_benutzerfreundlichkeit 
+# endregion
 
-# run server
+# region run server
 if __name__ == '__main__':
     app.run_server(debug=True,
                    # mode='external',
                    # port=3003)
                    ),
+# endregion
