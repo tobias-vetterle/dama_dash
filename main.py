@@ -33,301 +33,10 @@ server = app.server
 header = html.H3("Durchblick im Datendschungel",
                  className="bg-primary mt-3 p-1 text-white text-center")
 
-sub_header = html.H6("Eine Entscheidungshilfe zur Auswahl von Softwarelösungen für das kommunale (Bildungs)Datenmanagement",
+sub_header = html.H6("Eine Entscheidungshilfe zur Auswahl von Softwarelösungen für das kommunale (Bildungs-)Datenmanagement",
                  className="bg-primary mb-2 p-1 pb-3 text-white text-center")
                  #className="bg-primary text-white p-3 mb-2 text-center")
 
-# endregion
- 
-# region create html components: collapse bar 
-
-# collapse_etablierung = html.Div(
-#     [
-#         dbc.Button(
-#             "Etablierung",
-#             id="collapse_etablierung_button",
-#             className="mb-3",
-#             color="primary",
-#             outline=True,
-#             size="sm",
-#             n_clicks=0,
-#         ),
-#         dbc.Collapse(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                         "Etablierung und Verfügbarkeit in der kommunalen Verwaltung"
-#                     ),
-#                     style={"width": "400px", "margin-bottom": "10px"},
-#                 ),
-#                 id="collapse_etablierung",
-#                 is_open=False,
-#             ),
-#     ]
-# )
-
-# collapse_benutzerfreundlichkeit = html.Div(
-#     [
-#         dbc.Button(
-#             "Benutzerfreundlichkeit",
-#             id="collapse_benutzerfreundlichkeit_button",
-#             className="mb-3",
-#             color="primary",
-#             outline=True,
-#             size="sm",
-#             n_clicks=0,
-#         ),
-#         dbc.Collapse(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                         "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
-#                     ),
-#                     style={"width": "400px", "margin-bottom": "10px"},
-#                 ),
-#                 id="collapse_benutzerfreundlichkeit",
-#                 is_open=False,
-#             ),
-#     ]
-# )
-
-# collapse_anschaffungskosten = html.Div(
-#     [
-#         dbc.Button(
-#             "Anschaffungskosten",
-#             id="collapse_anschaffungskosten_button",
-#             className="mb-3",
-#             color="primary",
-#             outline=True,
-#             size="sm",
-#             n_clicks=0,
-#         ),
-#         dbc.Collapse(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                         "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
-#                     ),
-#                     style={"width": "400px", "margin-bottom": "10px"},
-#                 ),
-#                 id="collapse_anschaffungskosten",
-#                 is_open=False,
-#             ),
-#     ]
-# )
-
-# collapse_integration = html.Div(
-#     [
-#         dbc.Button(
-#             "Integration",
-#             id="collapse_integration_button",
-#             className="mb-3",
-#             color="primary",
-#             outline=True,
-#             size="sm",
-#             n_clicks=0,
-#         ),
-#         dbc.Collapse(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                         "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
-#                     ),
-#                     style={"width": "400px", "margin-bottom": "10px"},
-#                 ),
-#                 id="collapse_integration",
-#                 is_open=False,
-#             ),
-#     ]
-# )
-
-# collapse_zusammenarbeit = html.Div(
-#     [
-#         dbc.Button(
-#             "Zusammenarbeit",
-#             id="collapse_zusammenarbeit_button",
-#             className="mb-3",
-#             color="primary",
-#             outline=True,
-#             size="sm",
-#             n_clicks=0,
-#         ),
-#         dbc.Collapse(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                         "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
-#                     ),
-#                     style={"width": "400px", "margin-bottom": "10px"},
-#                 ),
-#                 id="collapse_zusammenarbeit",
-#                 is_open=False,
-#             ),
-#     ]
-# )
-
-# collapse_datenmengen = html.Div(
-#     [
-#         dbc.Button(
-#             "Datenmengen",
-#             id="collapse_datenmengen_button",
-#             className="mb-3",
-#             color="primary",
-#             outline=True,
-#             size="sm",
-#             n_clicks=0,
-#         ),
-#         dbc.Collapse(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                         "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
-#                     ),
-#                     style={"width": "400px", "margin-bottom": "10px"},
-#                 ),
-#                 id="collapse_datenmengen",
-#                 is_open=False,
-#             ),
-#     ]
-# )
-
-# collapse_datenqualitaet = html.Div(
-#     [
-#         dbc.Button(
-#             "Datenqualität",
-#             id="collapse_datenqualitaet_button",
-#             className="mb-3",
-#             color="primary",
-#             outline=True,
-#             size="sm",
-#             n_clicks=0,
-#         ),
-#         dbc.Collapse(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                         "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
-#                     ),
-#                     style={"width": "400px", "margin-bottom": "10px"},
-#                 ),
-#                 id="collapse_datenqualitaet",
-#                 is_open=False,
-#             ),
-#     ]
-# )
-
-# collapse_datenanalyse = html.Div(
-#     [
-#         dbc.Button(
-#             "Datenanalyse",
-#             id="collapse_datenanalyse_button",
-#             className="mb-3",
-#             color="primary",
-#             outline=True,
-#             size="sm",
-#             n_clicks=0,
-#         ),
-#         dbc.Collapse(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                         "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
-#                     ),
-#                     style={"width": "400px", "margin-bottom": "10px"},
-#                 ),
-#                 id="collapse_datenanalyse",
-#                 is_open=False,
-#             ),
-#     ]
-# )
-
-# collapse_rechtemanagement = html.Div(
-#     [
-#         dbc.Button(
-#             "Rechtemanagement",
-#             id="collapse_rechtemanagement_button",
-#             className="mb-3",
-#             color="primary",
-#             outline=True,
-#             size="sm",
-#             n_clicks=0,
-#         ),
-#         dbc.Collapse(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                         "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
-#                     ),
-#                     style={"width": "400px", "margin-bottom": "10px"},
-#                 ),
-#                 id="collapse_rechtemanagement",
-#                 is_open=False,
-#             ),
-#     ]
-# )
-
-# collapse_nachhaltigkeit = html.Div(
-#     [
-#         dbc.Button(
-#             "Nachhaltigkeit",
-#             id="collapse_nachhaltigkeit_button",
-#             className="mb-3",
-#             color="primary",
-#             outline=True,
-#             size="sm",
-#             n_clicks=0,
-#         ),
-#         dbc.Collapse(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                         "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
-#                     ),
-#                     style={"width": "400px", "margin-bottom": "10px"},
-#                 ),
-#                 id="collapse_nachhaltigkeit",
-#                 is_open=False,
-#             ),
-#     ]
-# )
-
-# collapse_dashboards = html.Div(
-#     [
-#         dbc.Button(
-#             "Dashboards",
-#             id="collapse_dashboards_button",
-#             className="mb-3",
-#             color="primary",
-#             outline=True,
-#             size="sm",
-#             n_clicks=0,
-#         ),
-#         dbc.Collapse(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                         "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
-#                     ),
-#                     style={"width": "400px", "margin-bottom": "10px"},
-#                 ),
-#                 id="collapse_dashboards",
-#                 is_open=False,
-#             ),
-#     ]
-# )
-
-# collapse_schnittstellen = html.Div(
-#     [
-#         dbc.Button(
-#             "Schnittstellen",
-#             id="collapse_schnittstellen_button",
-#             className="mb-3",
-#             color="primary",
-#             outline=True,
-#             size="sm",
-#             n_clicks=0,
-#         ),
-#         dbc.Collapse(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                         "Benutzerfreundlichkeit und Einarbeitungsaufwand der Software"
-#                     ),
-#                     style={"width": "400px", "margin-bottom": "10px"},
-#                 ),
-#                 id="collapse_schnittstellen",
-#                 is_open=False,
-#             ),
-#     ]
-# )
 # endregion
 
 # region create html components: checklist
@@ -511,50 +220,6 @@ fig = html.Div(
 
 # endregion
 
-# region create html components: intro text
-
-# TODO integrate into text and tab bar in collar bar
-
-intro_text = dbc.Card(
-    dbc.CardBody(
-        [
-            html.H6("Hinweise zur Bedienung", style={"font-weight": "bold"}),
-            html.P("Die Anforderungen an eine Datenmanagement-Lösung variieren im Einzelfall je nach kommunalen Zielstellungen, Bedarfen und Voraussetungen. Wählen Sie aus der linken Liste aus, welche Anforderungen die von Ihnen gesuchte Software-Lösung für das kommunale Datenmanagement erfüllen soll. Das Diagramm in der Mitte gibt Ihnen eine Einschätzung, welche Art von Software-Lösung zu Ihren Anforderungen passt.", className="card-text"),
-            html.P("Für ein genaueres Ergebnis können Sie die ausgewählten Anforderungen mit den Schiebereglern rechts gewichten. Fragen Sie sich: 'Wie wichtig ist mir diese Anforderung im Vergleich zu den anderen ausgewählten Anforderungen?'", className="card-text"),
-            html.P("Klicken Sie auf die Tabs in der rechten Leiste, um Erläuterungen zu den unten auswählbaren Anforderungen an ein kommunales Datenmanagement zu erhalten.", className="card-text"),
-        ],
-        #style={"width": "400px", "margin-bottom": "10px"},
-    ),
-    className="mt-3",
-)
-
-# collapse_etablierung = html.Div(
-#     [
-#         dbc.Button(
-#             "Etablierung",
-#             id="collapse_etablierung_button",
-#             className="mb-3",
-#             color="primary",
-#             outline=True,
-#             size="sm",
-#             n_clicks=0,
-#         ),
-#         dbc.Collapse(
-#             dbc.Card(
-#                 dbc.CardBody(
-#                         "Etablierung und Verfügbarkeit in der kommunalen Verwaltung"
-#                     ),
-#                     style={"width": "400px", "margin-bottom": "10px"},
-#                 ),
-#                 id="collapse_etablierung",
-#                 is_open=False,
-#             ),
-#     ]
-# )
-
-
-# endregion
-
 # region create html components: tab bar
 
 tab2_content = dbc.Card(
@@ -669,14 +334,19 @@ tab13_content = dbc.Card(
 
 # endregion
 
-# region create layout
+# region create html components: collapse with intro text and tabs
 
-
-headers = dbc.Card([
-    header,
-    sub_header], 
-    className="bg-primary border-0"
-    )
+intro_text = dbc.Card(
+    dbc.CardBody(
+        [
+            html.H6("Hinweise zur Bedienung", style={"font-weight": "bold"}),
+            html.P("Die Anforderungen an eine Datenmanagement-Lösung variieren im Einzelfall je nach kommunalen Zielstellungen, Bedarfen und Voraussetungen. Wählen Sie aus der Liste unten links aus, welche Anforderungen die von Ihnen gesuchte Software-Lösung für das kommunale Datenmanagement erfüllen soll. Das Diagramm in der Mitte gibt Ihnen eine Einschätzung, welche Art von Software-Lösung zu Ihren Anforderungen passt.", className="card-text"),
+            html.P("Für ein genaueres Ergebnis können Sie die ausgewählten Anforderungen mit den Schiebereglern unten rechts gewichten. Fragen Sie sich: 'Wie wichtig ist mir diese Anforderung im Vergleich zu den anderen ausgewählten Anforderungen?'", className="card-text"),
+            html.P("Klicken Sie auf die Tabs in der rechten Leiste, um Erläuterungen zu den unten auswählbaren Anforderungen an ein kommunales Datenmanagement zu erhalten.", className="card-text"),
+        ],
+    ),
+    className="mt-3",
+)
 
 tabs = dbc.Tabs(
     [
@@ -696,6 +366,50 @@ tabs = dbc.Tabs(
     style={"margin-bottom": "13px"},
     className="pt-3"
 )
+
+intro_text_tabs = dbc.Row(
+    [
+        dbc.Col(
+            [intro_text],
+            xs=10, sm=8, md=4, lg=4, xl=4
+        ),
+        dbc.Col(
+            [tabs],
+            xs=10, sm=8, md=8, lg=8, xl=8
+        ),
+    ]
+)
+
+collapse_hinweise = html.Div(
+    [
+        dbc.Button(
+            "Hinweise und Erläuterungen",
+            id="collapse_hinweise_button",
+            className="mb-3",
+            color="primary",
+            outline=True,
+            size="sm",
+            n_clicks=0,
+        ),
+        dbc.Collapse(
+            intro_text_tabs,
+            id="collapse_hinweise",
+            is_open=False,
+        )
+    ]
+)
+
+
+# endregion
+
+
+# region create layout
+
+headers = dbc.Card([
+    header,
+    sub_header], 
+    className="bg-primary border-0"
+    )
 
 checklist = dbc.Card([
     header_checklist,
@@ -725,37 +439,11 @@ app.layout = dbc.Container(
     [
         headers,
 
-        dbc.Row(
-            [
-                dbc.Col(
-                    [intro_text],
-                    xs=10, sm=8, md=4, lg=4, xl=4,
-                ),
-                dbc.Col(
-                    [tabs],
-                    xs=10, sm=8, md=8, lg=8, xl=8
-                )
-            ],
-            className="px-4",
+        dbc.Row
+        (
+            [collapse_hinweise],
+        className="px-4 pt-4",
         ),
-
-        # dbc.Row
-        # ([
-        #     dbc.Col([collapse_etablierung], xs=6, sm=3, md=2, lg=2, xl=2,),
-        #     dbc.Col([collapse_benutzerfreundlichkeit], xs=6, sm=3, md=2, lg=2, xl=2,),
-        #     dbc.Col([collapse_anschaffungskosten], xs=6, sm=3, md=2, lg=2, xl=2,),
-        #     dbc.Col([collapse_integration], xs=6, sm=3, md=2, lg=2, xl=2,),
-        #     dbc.Col([collapse_zusammenarbeit], xs=6, sm=3, md=2, lg=2, xl=2,),
-        #     dbc.Col([collapse_datenmengen], xs=6, sm=3, md=2, lg=2, xl=2,),
-        #     dbc.Col([collapse_datenqualitaet], xs=6, sm=3, md=2, lg=2, xl=2,),
-        #     dbc.Col([collapse_datenanalyse], xs=6, sm=3, md=2, lg=2, xl=2,),
-        #     dbc.Col([collapse_rechtemanagement], xs=6, sm=3, md=2, lg=2, xl=2,),
-        #     dbc.Col([collapse_nachhaltigkeit], xs=6, sm=3, md=2, lg=2, xl=2,),
-        #     dbc.Col([collapse_dashboards], xs=6, sm=3, md=2, lg=2, xl=2,),
-        #     dbc.Col([collapse_schnittstellen], xs=6, sm=3, md=2, lg=2, xl=2,),
-        #   ],
-        #   justify="center"
-        # ),
 
         dbc.Row
         (
@@ -1010,15 +698,15 @@ def show_hide_sstellen(selected_boxes):
 
 # region callbacks for collapse buttons
 
-# @app.callback(
-#     Output("collapse_etablierung", "is_open"),
-#     [Input("collapse_etablierung_button", "n_clicks")],
-#     [State("collapse_etablierung", "is_open")],
-# )
-# def toggle_collapse(n, is_open):
-#     if n:
-#         return not is_open
-#     return is_open
+@app.callback(
+    Output("collapse_hinweise", "is_open"),
+    [Input("collapse_hinweise_button", "n_clicks")],
+    [State("collapse_hinweise", "is_open")],
+)
+def toggle_collapse(n, is_open):
+    if n:
+        return not is_open
+    return is_open
 
 # @app.callback(
 #     Output("collapse_benutzerfreundlichkeit", "is_open"),
