@@ -402,7 +402,6 @@ collapse_hinweise = html.Div(
 
 # endregion
 
-
 # region create layout
 
 headers = dbc.Card([
